@@ -1,4 +1,4 @@
-# replugin-androidx
+# RePlugin-AndroidX
 本Repo的目标是维护一个支持AndroidX的[Qihoo360 RePlugin](https://github.com/Qihoo360/RePlugin)框架分支，欢迎测试&提issue&提PR；
 
 + Q：为什么不在RePlugin官方提交PR？
