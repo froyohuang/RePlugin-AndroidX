@@ -1,0 +1,4 @@
+include ':app'
+include ':replugin-plugin-gradle-androidx'
+project(':replugin-plugin-gradle-androidx').projectDir = new File('../replugin-plugin-gradle-androidx')
+rootProject.name='TestRpAndroidX'

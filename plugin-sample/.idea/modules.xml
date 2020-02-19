@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TestRpAndroidX.iml" filepath="$PROJECT_DIR$/TestRpAndroidX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../replugin-plugin-gradle-androidx/replugin-plugin-gradle-androidx.iml" filepath="$PROJECT_DIR$/../replugin-plugin-gradle-androidx/replugin-plugin-gradle-androidx.iml" group="replugin-plugin-gradle-androidx" />
+    </modules>
+  </component>
+</project>

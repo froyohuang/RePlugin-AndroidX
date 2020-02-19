@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.qihoo360.replugin:replugin-plugin-lib:2.3.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15e6f3a83d26beef599cd67045f470f2/jetified-replugin-plugin-lib-2.3.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15e6f3a83d26beef599cd67045f470f2/jetified-replugin-plugin-lib-2.3.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.qihoo360.replugin/replugin-plugin-lib/2.3.3/e38e4fe80a0f177e2a95df7f3518736686c47d82/replugin-plugin-lib-2.3.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

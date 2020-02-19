@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation 'com.android.tools.build:gradle:3.5.3'
+    implementation 'org.json:json:20160212'
+    implementation 'org.codehaus.groovy:groovy:2.4.7'
+    implementation 'com.squareup:javapoet:1.5.1'
+    implementation 'com.android.tools.build:transform-api:1.5.0'
+    implementation 'javassist:javassist:3.12.1.GA'
+    implementation 'commons-io:commons-io:2.5'
+
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+repositories {
+    google()
+    jcenter()
+}
+
+apply from: './upload.gradle'
