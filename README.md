@@ -6,7 +6,7 @@
 
 + Q：如果有一天RePlugin官方复活并支持AndroidX了呢？
 + A：那当然是回归官方了。
-
+## 施工中。。。
 ## 当前版本0.1.0
 支持的特性：宿主和插件都使用AndroidX的情况下，能顺利调起插件Activity，经测试满足几乎所有RePlugin已有功能。主要修改点：
 1. 修改replugin-plugin-gradle中ManifestAPI，使其能够在高版本gradle api下成功获取对应manifest文件
