@@ -1,0 +1,15 @@
+project.ext{
+	RP_USER = 'replugin-androidx'
+	RP_REPO = 'replugin-androidx'
+	RP_USERORG = 'qihoo360' // unset this if you an't belong to any orgnization
+	//
+	RP_SITE = 'https://github.com/froyohuang/RePlugin-AndroidX'
+	RP_DESC = 'RePlugin - A flexible, stable, easy-to-use Android Plug-in Framework'
+	RP_EMAIL = 'alex_hx@163.com'
+	RP_GIT_URL = 'https://github.com/froyohuang/RePlugin-AndroidX'
+	RP_LICENSES_URL = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+	RP_LICENSES_NAME = 'Apache-2.0'
+	//
+	RP_GROUP = 'com.froyo.replugin'
+	RP_VERSION = '2.3.3.0'
+}

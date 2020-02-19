@@ -7,7 +7,7 @@ android {
         applicationId "com.demo.testrpandroidx"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 6
+        versionCode 8
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,7 +24,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.qihoo360.replugin:replugin-plugin-lib:2.3.3'
+//    implementation 'com.qihoo360.replugin:replugin-plugin-lib:2.3.3'
+    implementation 'com.froyo.replugin:replugin-plugin-lib-androidx:2.3.3.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
