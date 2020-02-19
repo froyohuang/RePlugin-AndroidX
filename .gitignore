@@ -233,3 +233,7 @@ Temporary Items
 
 #localRepo
 repo/
+plugin-sample/.gradle/
+plugin-sample/.idea/
+replugin-plugin-gradle-androidx/.gradle
+replugin-plugin-gradle-androidx/.idea
