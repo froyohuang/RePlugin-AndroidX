@@ -23,7 +23,7 @@ package com.froyo.replugin.plugin.gradle.androidx
 class AppConstant {
 
     /** 版本号 */
-    def static final VER = "1.0.0"
+    def static final VER = "0.1.0"
 
     /** 打印信息时候的前缀 */
     def static final TAG = "< replugin-plugin-v${VER} >"
