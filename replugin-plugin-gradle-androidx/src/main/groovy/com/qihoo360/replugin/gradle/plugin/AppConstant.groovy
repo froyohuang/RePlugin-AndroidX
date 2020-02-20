@@ -23,10 +23,10 @@ package com.qihoo360.replugin.gradle.plugin
 class AppConstant {
 
     /** 版本号 */
-    def static final VER = "2.3.3"
+    def static final VER = "2.3.3.0"
 
     /** 打印信息时候的前缀 */
-    def static final TAG = "< replugin-plugin-v${VER} >"
+    def static final TAG = "< replugin-plugin-androidx v${VER} >"
 
     /** 外部用户配置信息 */
     def static final USER_CONFIG = "repluginPluginConfig"
