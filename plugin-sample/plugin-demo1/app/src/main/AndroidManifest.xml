@@ -1,0 +1,178 @@
+<!--
+  ~ Copyright (C) 2005-2017 Qihoo 360 Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  ~ use this file except in compliance with the License. You may obtain a copy of
+  ~ the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed To in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  ~ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing permissions and limitations under
+  ~ the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qihoo360.replugin.sample.demo1">
+
+    <application
+        android:name=".MainApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name">
+
+        <meta-data
+            android:name="process_map"
+            android:value="[
+            {'from':'com.qihoo360.replugin.sample.demo1:bg','to':'$p0'}
+            ]" />
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 最简Activity -->
+        <activity
+            android:name=".activity.standard.StandardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- theme 测试 -->
+        <activity
+            android:name=".activity.theme.ThemeBlackNoTitleBarActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <!-- NoTitleBar -->
+        <activity
+            android:name=".activity.theme.ThemeDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <!-- NoTitleBarFullScreen -->
+        <activity
+            android:name=".activity.theme.ThemeBlackNoTitleBarFullscreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.qihoo360.replugin.sample.demo1.action.theme_fullscreen" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.qihoo360.repluginapp.replugin.demo1.CATEGORY1" />
+            </intent-filter>
+        </activity>
+
+        <!-- receivers -->
+        <receiver android:name=".receivers.PluginDemo1Receiver">
+            <intent-filter>
+                <action android:name="com.qihoo360.repluginapp.replugin.receiver.ACTION1" />
+            </intent-filter>
+        </receiver>
+
+        <!-- service -->
+        <service
+            android:name=".service.PluginDemoAppService" />
+        <service
+            android:name=".service.PluginDemoService1"
+            android:process=":bg" />
+        <service
+            android:name=".service.PluginDemoService2">
+            <intent-filter>
+                <action android:name="com.qihoo360.replugin.sample.demo1.action.XXXX" />
+            </intent-filter>
+        </service>
+
+        <!-- TaskAffinity -->
+        <activity
+            android:name=".activity.task_affinity.TAActivity1"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_1"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name=".activity.task_affinity.TAActivity2"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_1"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name=".activity.task_affinity.TAActivity3"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_1"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name=".activity.task_affinity.TAActivity4"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_1"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <!-- TaskAffinity-end -->
+
+        <activity
+            android:name=".activity.single_instance.TIActivity1"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <!-- SingleTop -->
+        <activity
+            android:name=".activity.single_top.SingleTopActivity1"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <!-- IntentFilter -->
+
+        <activity
+            android:name=".activity.intent_filter.IntentFilterDemoActivity1"
+            android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.demo1" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="category_demo" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.preference.PrefActivity1"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.preference.PrefActivity2"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.webview.WebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <provider
+            android:name=".provider.Provider2"
+            android:authorities="com.qihoo360.replugin.sample.demo1.provider2" />
+
+        <activity android:name=".activity.for_result.ForResultActivity"/>
+
+        <activity android:name=".activity.file_provider.FileProviderActivity"/>
+
+        <activity android:name=".activity.notify_test.NotifyActivity"/>
+
+        <!-- 以下provider，作为插件时，可注释掉；作为单独APK时需要声明-->
+        <provider
+            android:name="com.qihoo360.replugin.sample.demo1.provider.FileProvider"
+            android:authorities="com.qihoo360.replugin.sample.host.FILE_PROVIDER"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_path" />
+        </provider>
+    </application>
+</manifest>
