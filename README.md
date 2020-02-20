@@ -12,8 +12,9 @@
 + 其中2.3.3为当前RePlugin官方版本，第四位0为RePlugin-AndroidX版本号
 + 支持的特性：宿主和插件都使用AndroidX的情况下，能顺利调起插件Activity，经测试满足几乎所有RePlugin已有功能。
 ### 2.3.3.0版本接入replugin框架的方法
-1. 宿主部分，正常进行AndroidX改造，按照RePlugin官方文档进行接入引入host-gradle和host-library，需要注意的是要在app的build.gradle中添加依赖:  implementation 'androidx.legacy:legacy-support-v4:1.0.0’
-2. 插件部分，正常进行AndroidX改造，参照当前sample引用本repo的plugin-gradle-androidx和plugin-lib-androidx即可
+1. 宿主部分，正常进行AndroidX改造，参照当前host-sample引用host-gradle-androidx和host-library-androidx，需要注意的是要在app的build.gradle中添加依赖:  
+```implementation 'androidx.legacy:legacy-support-v4:1.0.0’```
+2. 插件部分，正常进行AndroidX改造，参照当前plugin-sample引用本repo的plugin-gradle-androidx和plugin-lib-androidx即可
 ### 修改点
 1. 修改replugin-plugin-gradle中ManifestAPI，使其能够在高版本gradle api下成功获取对应manifest文件
 2. 修改replugin-plugin-gradle中LoaderActivityInjector，使其能够匹配androidx包下的FragmentAcvitiy和AppCompatActivity，并进行替换
