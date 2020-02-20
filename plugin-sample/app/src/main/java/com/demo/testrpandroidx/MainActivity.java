@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.qihoo360.replugin.loader.a.PluginFragmentActivity;
 
 
-public class MainActivity extends PluginFragmentActivity {
+public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
