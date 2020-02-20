@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">RePlugin Sample</string>
+    <string name="app_name">RePlugin AndroidX Sample</string>
     <string name="startDemo1">Start plugin demo1</string>
     <string name="startDemo3">Start Kotlin Plugin (demo3) </string>
     <string name="startDemo4">Start plugin webview</string>
