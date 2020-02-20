@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
         // =========
         // Activity
         // =========
-        mItems.add(new TestItem("Jump 2 Host", new View.OnClickListener() {
+        mItems.add(new TestItem("AndroidX demo1 Jump 2 Host", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 打开宿主Activity
