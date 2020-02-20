@@ -38,6 +38,7 @@
         return android.R.style.Theme_NoTitleBar;
     }
 ```
+7. 修改replugin-host-gradle，除了更新gradle版本，暂时未见需要修改的地方，插件运行log正常
 
 ## 2.3.3.1版本计划（TODO）
 1. 完善sampleplugin测试各项功能兼容程度，重点验证LocalBroadcastManager更换后的影响、AppCompat更换后的影响（特别是theme相关支持）
