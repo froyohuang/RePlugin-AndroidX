@@ -40,11 +40,8 @@
     }
 ```
 7. 修改replugin-host-gradle，除了更新gradle版本，暂时未见需要修改的地方，插件运行log正常
-
-## 2.3.3.1版本计划（TODO）
-1. 完善sampleplugin测试各项功能兼容程度，重点验证LocalBroadcastManager更换后的影响、AppCompat更换后的影响（特别是theme相关支持）
-2. 提交库到远程maven仓库方便使用
-3. 在升级demo host的targetsdk到28以后，发现一个replugin和android共同留下的坑，在8.0手机上会crash
+### 已知问题
+1. 在升级demo host的targetsdk到28以后，发现一个replugin和android共同留下的坑，在8.0手机上会crash
 ```
 java.lang.RuntimeException: Unable to start activity ComponentInfo{com.qihoo360.replugin.sample.host/com.qihoo360.replugin.sample.host.loader.a.ActivityN1NRNTS0}: java.lang.IllegalStateException: Only fullscreen opaque activities can request orientation
         at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2817)
@@ -64,5 +61,9 @@ java.lang.RuntimeException: Unable to start activity ComponentInfo{com.qihoo360.
         at android.app.Activity.performCreate(Activity.java:6975)
         at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1213)
 ```
-原因可见[此链接](https://zhuanlan.zhihu.com/p/32190223)，该问题在8.1后已经修复，但是考虑到8.0的用户还是很多，需要填一下。
+原因可见[此链接](https://zhuanlan.zhihu.com/p/32190223)，该问题在8.1后已经修复，但是考虑到8.0的用户还是很多，需要填一下。同时发现将host的repluginHostConfig中的useAppCompat设置为false可以避免此问题，具体原因不详，设置为false的唯一区别是坑位Activity的theme从@style/Theme.AppCompat变为@android:style/Theme.NoTitleBar，但是这2个theme都是不透明的。具体原因待查。
 
+## 2.3.3.1版本计划（TODO）
+1. 完善sampleplugin测试各项功能兼容程度，重点验证LocalBroadcastManager更换后的影响、AppCompat更换后的影响（特别是theme相关支持）
+2. 提交库到远程maven仓库方便使用
+3. 修复已知2.3.3.0已知问题1
