@@ -19,7 +19,26 @@
 2. 修改replugin-plugin-gradle中LoaderActivityInjector，使其能够匹配androidx包下的FragmentAcvitiy和AppCompatActivity，并进行替换
 3. 修改replugin-plugin-library中的PluginFragmentActivity和PluginAppCompatActivity继承AndroidX包中的对应Activity
 4. 修改replugin-plugin-library中的PluginLocalBroadcastManager中反射获取LocalBroadcastManager时使用AndroidX包中的对应的类名
+5. 修改replugin-host-library中各处对LocalBroadcastManager的引用，改为引用AndroidX包中的类；
+6. 修改replugin-host-library中PluginLibraryInternalProxy中对Theme的处理
+ ```
+    private static int getDefaultThemeId() {
+        if (HostConfigHelper.ACTIVITY_PIT_USE_APPCOMPAT) {
+            try {
+                Class clazz = ReflectUtils.getClass("androidx.appcompat.R$style");
+                return (int) ReflectUtils.readStaticField(clazz, "Theme_AppCompat");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+        }
+        return android.R.style.Theme_NoTitleBar;
+    }
+```
 
 ## 2.3.3.1版本计划（TODO）
-1. 完善sampleplugin测试各项功能兼容程度
+1. 完善sampleplugin测试各项功能兼容程度，重点验证LocalBroadcastManager更换后的影响、AppCompat更换后的影响（特别是theme相关支持）
 2. 提交库到远程maven仓库方便使用
