@@ -44,3 +44,25 @@
 ## 2.3.3.1版本计划（TODO）
 1. 完善sampleplugin测试各项功能兼容程度，重点验证LocalBroadcastManager更换后的影响、AppCompat更换后的影响（特别是theme相关支持）
 2. 提交库到远程maven仓库方便使用
+3. 在升级demo host的targetsdk到28以后，发现一个replugin和android共同留下的坑，在8.0手机上会crash
+```
+java.lang.IllegalStateException: Only fullscreen opaque activities can request orientation
+at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:3194)
+at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:3302)
+at android.app.ActivityThread.-wrap12(Unknown Source:0)
+at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1891)
+at android.os.Handler.dispatchMessage(Handler.java:108)
+at android.os.Looper.loop(Looper.java:166)
+at android.app.ActivityThread.main(ActivityThread.java:7425)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:245)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:921)
+Caused by: java.lang.IllegalStateException: Only fullscreen opaque activities can request orientation
+at android.app.Activity.onCreate(Activity.java:1081)
+at com.qihoo360.replugin.loader.a.PluginActivity.onCreate(Unknown Source:3)
+at com.qihoo360.replugin.sample.demo1.activity.theme.ThemeDialogActivity.onCreate(ThemeDialogActivity.java:38)
+at android.app.Activity.performCreate(Activity.java:7372)
+at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1218)
+```
+原因可见[此链接](https://zhuanlan.zhihu.com/p/32190223)，该问题在8.1后已经修复，但是考虑到8.0的用户还是很多，需要填一下。
+
