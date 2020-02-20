@@ -238,3 +238,11 @@ plugin-sample/.idea/
 replugin-plugin-gradle-androidx/.gradle
 replugin-plugin-gradle-androidx/.idea
 */*.iml
+host-sample/host/.gradle/
+host-sample/host/.idea/
+replugin-plugin-library-androidx/.gradle
+replugin-plugin-library-androidx/.idea
+replugin-host-gradle-androidx/.gradle
+replugin-host-gradle-androidx/.idea
+replugin-host-library-androidx/.gradle
+replugin-host-library-androidx/.idea
