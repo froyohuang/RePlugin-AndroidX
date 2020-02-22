@@ -45,6 +45,10 @@
             android:name=".activity.standard.StandardActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.fragment.StandardFragmentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <!-- theme 测试 -->
         <activity

@@ -22,7 +22,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
-        classpath "com.froyo.replugin:replugin-host-gradle-androidx:2.3.3.0"
+        classpath "io.github.froyohuang:replugin-host-gradle-androidx:2.3.3.0"
     }
 }
 

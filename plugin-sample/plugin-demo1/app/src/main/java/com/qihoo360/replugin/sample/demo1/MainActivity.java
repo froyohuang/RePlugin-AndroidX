@@ -38,9 +38,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.common.utils.TimeUtils;
 import com.qihoo360.replugin.sample.demo1.activity.file_provider.FileProviderActivity;
+import com.qihoo360.replugin.sample.demo1.activity.fragment.StandardFragmentActivity;
 import com.qihoo360.replugin.sample.demo1.activity.notify_test.NotifyActivity;
 import com.qihoo360.replugin.sample.demo1.activity.preference.PrefActivity2;
 import com.qihoo360.replugin.sample.demo1.activity.single_instance.TIActivity1;
@@ -105,6 +108,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), StandardActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        }));
+        mItems.add(new TestItem("Activity: Standard FragmentActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), StandardFragmentActivity.class);
                 v.getContext().startActivity(intent);
             }
         }));
