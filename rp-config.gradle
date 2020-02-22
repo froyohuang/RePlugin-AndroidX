@@ -10,6 +10,6 @@ project.ext{
 	RP_LICENSES_URL = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
 	RP_LICENSES_NAME = 'Apache-2.0'
 	//
-	RP_GROUP = 'com.froyo.replugin'
+	RP_GROUP = 'io.github.froyohuang'
 	RP_VERSION = '2.3.3.0'
 }
