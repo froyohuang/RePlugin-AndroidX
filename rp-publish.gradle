@@ -38,6 +38,7 @@ def pbUpdateVariables(){
 ///// CONFIG
 
 apply from: "${buildscript.sourceFile.parent}/rp-config.gradle"
+apply from: "${buildscript.sourceFile.parent}/rp-config-key.gradle"
 
 group = getPropertyExt('RP_GROUP')
 
@@ -159,6 +160,7 @@ install {
                 packaging 'aar'
                 name pbArtifactId
                 url pbSiteUrl
+                artifactId pbArtifactId
                 licenses {
                     license {
                         name pbLicense

@@ -1,0 +1,4 @@
+// 此配置不要上传
+project.ext{
+//	RP_BINTRAY_KEY = ''
+}

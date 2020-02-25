@@ -31,9 +31,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.qihoo360.replugin.RePlugin;
+import com.qihoo360.replugin.helper.LogDebug;
 import com.qihoo360.replugin.model.PluginInfo;
 import com.qihoo360.replugin.utils.FileUtils;
+import com.qihoo360.replugin.utils.ReflectUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,7 +46,7 @@ import java.io.InputStream;
 /**
  * @author RePlugin Team
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE_STORAGE = 20171222;
 
@@ -50,6 +54,16 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int dynamicThemeId = -1;
+        try {
+            dynamicThemeId = (int) ReflectUtils.invokeMethod(getClassLoader(),
+                    "android.view.ContextThemeWrapper", "getThemeResId", this, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        LogDebug.d("theme","MainActivity dynamicThemeId:"+dynamicThemeId);
+        LogDebug.d("theme","MainActivity id:"+androidx.appcompat.R.style.Theme_AppCompat);
+
         findViewById(R.id.btn_start_demo1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +184,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
         if (requestCode == REQUEST_CODE_DEMO1 && resultCode == RESULT_CODE_DEMO1) {
             Toast.makeText(this, data.getStringExtra("data"), Toast.LENGTH_SHORT).show();
         }

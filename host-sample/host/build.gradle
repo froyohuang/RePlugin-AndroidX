@@ -18,6 +18,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+//        maven{
+//            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
+//        }
         mavenLocal()
     }
     dependencies {
@@ -30,6 +33,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+//        maven{
+//            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
+//        }
         mavenLocal()
     }
 }
