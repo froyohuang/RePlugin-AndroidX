@@ -66,7 +66,7 @@ repluginPluginConfig {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation "com.froyo.replugin:replugin-plugin-lib-androidx:${RP_VERSION}"
+    implementation "io.github.froyohuang:replugin-plugin-lib-androidx:${RP_VERSION}"
 }
 
 if (android.defaultConfig.multiDexEnabled) {

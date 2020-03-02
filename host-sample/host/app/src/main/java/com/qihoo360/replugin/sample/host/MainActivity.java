@@ -133,17 +133,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_install_apk_from_sdcard).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_start_demo2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog pd = ProgressDialog.show(MainActivity.this, "Installing...", "Please wait loading from sdcard...", true, true);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        simulateInstallExternalSdcardPlugin();
-                        pd.dismiss();
-                    }
-                }, 1000);
+                // 刻意以“包名”来打开
+                RePlugin.startActivity(MainActivity.this, RePlugin.createIntent("com.qihoo360.replugin.sample.demo2", "com.qihoo360.replugin.sample.demo2.activity.appcompat.AppCompatActivityDemo"));
             }
         });
 
