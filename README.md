@@ -38,53 +38,10 @@ classpath "io.github.froyohuang:replugin-plugin-gradle-androidx:2.3.3.0"
 apply plugin: 'replugin-plugin-gradle-androidx'
 implementation 'io.github.froyohuang:replugin-plugin-lib-androidx:2.3.3.0'
 ```
-### 修改点
-1. 修改replugin-plugin-gradle中ManifestAPI，使其能够在高版本gradle api下成功获取对应manifest文件
-2. 修改replugin-plugin-gradle中LoaderActivityInjector，使其能够匹配androidx包下的FragmentAcvitiy和AppCompatActivity，并进行替换
-3. 修改replugin-plugin-library中的PluginFragmentActivity和PluginAppCompatActivity继承AndroidX包中的对应Activity
-4. 修改replugin-plugin-library中的PluginLocalBroadcastManager中反射获取LocalBroadcastManager时使用AndroidX包中的对应的类名
-5. 修改replugin-host-library中各处对LocalBroadcastManager的引用，改为引用AndroidX包中的类；
-6. 修改replugin-host-library中PluginLibraryInternalProxy中对Theme的处理
- ```
-    private static int getDefaultThemeId() {
-        if (HostConfigHelper.ACTIVITY_PIT_USE_APPCOMPAT) {
-            try {
-                Class clazz = ReflectUtils.getClass("androidx.appcompat.R$style");
-                return (int) ReflectUtils.readStaticField(clazz, "Theme_AppCompat");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            }
-        }
-        return android.R.style.Theme_NoTitleBar;
-    }
-```
-7. 修改replugin-host-gradle，除了更新gradle版本，暂时未见需要修改的地方，插件运行log正常
-### 已知问题
-1. 在升级demo host的targetsdk到28以后，发现一个replugin和android共同留下的坑，宿主启动插件的Activity在8.0手机上会crash：
-```
-java.lang.RuntimeException: Unable to start activity ComponentInfo{com.qihoo360.replugin.sample.host/com.qihoo360.replugin.sample.host.loader.a.ActivityN1NRNTS0}: java.lang.IllegalStateException: Only fullscreen opaque activities can request orientation
-        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2817)
-        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2892)
-        at android.app.ActivityThread.-wrap11(Unknown Source:0)
-        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1593)
-        at android.os.Handler.dispatchMessage(Handler.java:105)
-        at android.os.Looper.loop(Looper.java:164)
-        at android.app.ActivityThread.main(ActivityThread.java:6541)
-        at java.lang.reflect.Method.invoke(Native Method)
-        at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:240)
-        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:767)
-     Caused by: java.lang.IllegalStateException: Only fullscreen opaque activities can request orientation
-        at android.app.Activity.onCreate(Activity.java:986)
-        at com.qihoo360.replugin.loader.a.PluginActivity.onCreate(Unknown Source:3)
-        at com.qihoo360.replugin.sample.demo1.MainActivity.onCreate(MainActivity.java:76)
-        at android.app.Activity.performCreate(Activity.java:6975)
-        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1213)
-```
-原因可见[此链接](https://zhuanlan.zhihu.com/p/32190223)，该问题在8.1后已经修复，但是考虑到8.0的用户还是很多，需要解决一下。同时发现将host的repluginHostConfig中的useAppCompat设置为false可以避免此问题，设置为false的唯一区别是坑位Activity的theme从@style/Theme.AppCompat变为@android:style/Theme.NoTitleBar，但是这2个theme都是不透明的。具体原因待查。
+### 修改点&已知问题
+[2.3.3.0修改点&已知问题](https://github.com/froyohuang/RePlugin-AndroidX/wiki/2.3.3.0%E4%BF%AE%E6%94%B9%E7%82%B9&%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98)
+            
+
 
 ## 2.3.3.1版本计划（TODO）
 1. 完善sampleplugin测试各项功能兼容程度，重点验证LocalBroadcastManager更换后的影响、AppCompat更换后的影响（特别是theme相关支持）
