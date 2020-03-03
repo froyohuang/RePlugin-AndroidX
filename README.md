@@ -7,7 +7,7 @@
 + Q：如果有一天RePlugin官方复活并支持AndroidX了呢？
 + A：那当然是回归官方了。
 
-## 施工中。。。
+## 持续维护中
 ## 当前版本2.3.3.0
 + 其中2.3.3为当前RePlugin官方版本，第四位0为RePlugin-AndroidX版本号
 + 支持的特性：宿主和插件都使用AndroidX的情况下，能顺利调起插件Activity，经测试满足几乎所有RePlugin已有功能。
