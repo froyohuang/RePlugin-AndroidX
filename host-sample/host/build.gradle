@@ -18,10 +18,10 @@ buildscript {
     repositories {
         google()
         jcenter()
-//        maven{
-//            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
-//        }
-        mavenLocal()
+        maven{
+            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
+        }
+//        mavenLocal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
@@ -33,10 +33,10 @@ allprojects {
     repositories {
         google()
         jcenter()
-//        maven{
-//            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
-//        }
-        mavenLocal()
+        maven{
+            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
+        }
+//        mavenLocal()
     }
 }
 
