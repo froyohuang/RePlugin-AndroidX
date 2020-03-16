@@ -16,9 +16,12 @@
 buildscript {
     { p, cfg = "rp-config.gradle" -> if (new File(p, cfg).exists()) apply from: "${p}/${cfg}" else if (p.exists()) call(p.parentFile) }(buildscript.sourceFile.parentFile)
     repositories {
-        mavenLocal()
+//        mavenLocal()
         jcenter()
         google()
+        maven{
+            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
@@ -28,9 +31,12 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenLocal()
+//        mavenLocal()
         jcenter()
         google()
+        maven{
+            url "https://dl.bintray.com/froyo-github/Replugin-AndroidX"
+        }
     }
 }
 
